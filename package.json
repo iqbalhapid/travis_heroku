@@ -1,0 +1,22 @@
+{
+  "name": "travisci_heroku",
+  "version": "1.0.0",
+  "description": "an exercise to integrate project with travis_ci and heroku",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iqbalhapid/travis_heroku.git"
+  },
+  "author": "iqbal hapid && brian esa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iqbalhapid/travis_heroku/issues"
+  },
+  "homepage": "https://github.com/iqbalhapid/travis_heroku#readme",
+  "dependencies": {
+    "@hapi/hapi": "^18.4.0"
+  }
+}
