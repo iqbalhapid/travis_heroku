@@ -1,10 +1,14 @@
 {
   "name": "travisci_heroku",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.18.0"
+  },
   "description": "an exercise to integrate project with travis_ci and heroku",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "index.js"
   },
   "repository": {
     "type": "git",
