@@ -1,7 +1,7 @@
 const hapi = require('@hapi/hapi')
 
 const server = new hapi.Server({
-    port: process.env.port,
+    port: 8080,
     host: "0.0.0.0"
 })
 
