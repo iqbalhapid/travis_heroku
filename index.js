@@ -1,5 +1,3 @@
-'use strict'
-
 const hapi = require('@hapi/hapi')
 
 const server = new hapi.Server({
