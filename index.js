@@ -30,7 +30,7 @@ process.on('unhandledRejection', (err) => {
     console.log(err)
     process.exit(1)
 })
-start()
+// start()
 
 exports.start = start
 exports.init = init
