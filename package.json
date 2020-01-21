@@ -5,10 +5,10 @@
     "node": "10.18.0"
   },
   "description": "an exercise to integrate project with travis_ci and heroku",
-  "main": "index.js",
+  "main": "start.js",
   "scripts": {
     "test": "lab",
-    "start": "node index.js"
+    "start": "node start.js"
   },
   "repository": {
     "type": "git",
