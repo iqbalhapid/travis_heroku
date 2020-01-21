@@ -1,8 +1,6 @@
-'use strict'
+let hapi = require('@hapi/hapi')
 
-const hapi = require('@hapi/hapi')
-
-const server = new hapi.Server({
+let server = new hapi.Server({
     port: 3000,
     host: "0.0.0.0"
 })
@@ -15,13 +13,13 @@ server.route({
     }
 })
 
-const start = async () => {
+let start = async () => {
     await server.start()
     console.log('Server running at: ', server.info.uri)
     return server
 }
 
-const init = async () => {
+let init = async () => {
     await server.initialize();
     return server;
 }
