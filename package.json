@@ -7,7 +7,7 @@
   "description": "an exercise to integrate project with travis_ci and heroku",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "lab",
     "start": "node index.js"
   },
   "repository": {
@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/iqbalhapid/travis_heroku#readme",
   "dependencies": {
-    "@hapi/hapi": "^18.4.0"
+    "@hapi/code": "^8.0.1",
+    "@hapi/hapi": "^18.4.0",
+    "@hapi/lab": "^21.0.0"
   }
 }

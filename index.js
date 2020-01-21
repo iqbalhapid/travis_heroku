@@ -11,7 +11,7 @@ server.route({
     method : 'GET',
     path : '/',
     handler : (request, h) => {
-    return h.response('hello world')
+    return h.response('hello world').code(200)
     }
 })
 
@@ -21,9 +21,17 @@ const start = async () => {
     return server
 }
 
+const init = async () => {
+    await server.initialize();
+    return server;
+}
+
 process.on('unhandledRejection', (err) => {
     console.log(err)
     process.exit(1)
 })
-
 start()
+
+exports.start = start
+exports.init = init
+
