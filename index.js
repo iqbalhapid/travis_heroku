@@ -1,6 +1,6 @@
-let hapi = require('@hapi/hapi')
+const hapi = require('@hapi/hapi')
 
-let server = new hapi.Server({
+const server = new hapi.Server({
     port: 3000,
     host: "0.0.0.0"
 })
@@ -13,13 +13,13 @@ server.route({
     }
 })
 
-let start = async () => {
+const start = async () => {
     await server.start()
     console.log('Server running at: ', server.info.uri)
     return server
 }
 
-let init = async () => {
+const init = async () => {
     await server.initialize();
     return server;
 }

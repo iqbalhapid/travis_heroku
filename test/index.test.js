@@ -1,7 +1,9 @@
-let Lab = require('@hapi/lab');
-let { afterEach, beforeEach, describe, it } = exports.lab = Lab.script();
-let { expect } = require('@hapi/code')
-let { init } = require('../index');
+'use strict'
+
+const Lab = require('@hapi/lab');
+const { afterEach, beforeEach, describe, it } = exports.lab = Lab.script();
+const { expect } = require('@hapi/code')
+const { init } = require('../index');
 
 describe('GET /', () => {
     let server
