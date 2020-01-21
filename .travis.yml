@@ -5,4 +5,4 @@ deploy:
   provider: heroku
   api_key:
     secure: "2e7c5ec8-8a51-4dc7-8cc4-a7f895af707d"
-  app: travisci_heroku
+  app: travisci-heroku
