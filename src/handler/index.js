@@ -4,7 +4,7 @@ const {User} = require('../../config/mongoSchema')
 exports.register = (request, h) => {
     const {payload} = request
     return User.create(payload)
-    .then(res => h.response({res, message :'register success'}).code(201))
+    .then(res => h.response({res, message : 'register success'}).code(201))
     .catch(error => {
         const errorMessage = error.toString()
         if (errorMessage.match(/ValidationError|CastError/)) {
@@ -20,20 +20,15 @@ exports.register = (request, h) => {
 
 exports.login = (request, h) => {
     const {payload} = request
-    const data = payload.email ? {email: payload.email} : {uniqueId: payload.uniqueId}
+    const data = payload.email ? {email: payload.email} : {username: payload.username}
     return User.findOne(data).lean()
         .then(async res => {
             if (!res) {
                 return Boom.notFound('No User found');
             }
-            if (res.locked > Date.now()) {
-                return Boom.notAcceptable('This account is locked for 15 minutes')
-            }
             if (res.password != payload.password) {
-                await User.findOneAndUpdate(data, {countFailed: res.countFailed + 1}).lean()
                 return Boom.notAcceptable('Wrong Password');
             }
-            await User.findOneAndUpdate(data, {countFailed: 0}).lean()
             return h.response(res).code(202)
         })
         .catch(error => Boom.boomify(error))
