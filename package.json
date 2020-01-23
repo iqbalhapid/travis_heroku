@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/iqbalhapid/travis_heroku#readme",
   "dependencies": {
+    "@hapi/boom": "^9.0.0",
     "@hapi/code": "^8.0.1",
     "@hapi/hapi": "^18.4.0",
-    "@hapi/lab": "^21.0.0"
+    "@hapi/lab": "^21.0.0",
+    "mongoose": "^5.8.9"
   }
 }
