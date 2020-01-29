@@ -7,7 +7,7 @@ const { init } = require('../index');
 
 describe('GET /', () => {
     let server
-
+    
     beforeEach(async () => {
         server = await init();
     })

@@ -62,7 +62,7 @@ const register = {
             },
             failAction: async (req, h, err) => {
                 if(err) {
-                    console.log(err)
+                   return h.response(err)
                 }
             }
         }

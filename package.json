@@ -7,7 +7,7 @@
   "description": "an exercise to integrate project with travis_ci and heroku",
   "main": "start.js",
   "scripts": {
-    "test": "lab",
+    "test": "lab -l",
     "start": "node start.js"
   },
   "repository": {
