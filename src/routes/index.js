@@ -51,11 +51,19 @@ const register = {
         notes: 'Returns email, username, password',
         tags: ['api'],
         validate: {
+<<<<<<< HEAD
             payload: {
                 email: Joi.string().required(),
                 username: Joi.string().required(),
                 password: Joi.string().min(8)
             }
+=======
+            payload: Joi.object({
+                    email: Joi.string().required(),
+                    username : Joi.string().required(),
+                    password : Joi.string().min(8)
+            })
+>>>>>>> 42a97e2d3abcce61c448fd9c017a126262082afd
         },
         response: {
             status: {
@@ -70,11 +78,6 @@ const register = {
             }
         }
     },
-    // options : {
-    //     description: 'API for user register',
-    //     notes: 'Returns email, username, password',
-    //     tags: ['api'], // ADD THIS TAG
-    // },
     handler: handler.register
 }
 
@@ -85,19 +88,39 @@ const login = {
     options: {
         description: 'API for user login',
         notes: 'Returns email, username, password ',
+<<<<<<< HEAD
         tags: ['api'], // ADD THIS TAG
+=======
+        tags: ['api'],
+>>>>>>> 42a97e2d3abcce61c448fd9c017a126262082afd
         validate: {
             payload: {
                 email: Joi.string().required(),
                 password: Joi.string().min(8)
             }
         },
+<<<<<<< HEAD
     },
     // options : {
     //     description: 'API for user login',
     //     notes: 'Returns email, username, password ',
     //     tags: ['api'], // ADD THIS TAG
     // },
+=======
+        response: {
+            status: {
+                200: success,
+                400: validationError,
+                500: error
+            },
+            failAction: async (req, h, err) => {
+                if(err) {
+                    console.log(err)
+                }
+            }
+        }
+    },
+>>>>>>> 42a97e2d3abcce61c448fd9c017a126262082afd
     handler: handler.login
 }
 module.exports = [root, register, login]
