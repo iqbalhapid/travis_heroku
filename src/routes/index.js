@@ -48,9 +48,39 @@ const register = {
         notes: 'Returns email, username, password',
         tags: ['api'],
         validate: {
+            payload: Joi.object({
+                    email: Joi.string().required(),
+                    username : Joi.string().required(),
+                    password : Joi.string().min(8)
+            })
+        },
+        response: {
+            status: {
+                200: success,
+                400: validationError,
+                500: error
+            },
+            failAction: async (req, h, err) => {
+                if(err) {
+                    console.log(err)
+                }
+            }
+        }
+    },
+    handler: handler.register
+}
+
+const login = {
+    method: 'POST',
+    path: '/user/login',
+    options: {
+        description: 'API for user login',
+        notes: 'Returns email, username, password ',
+        tags: ['api'],
+        validate: {
             payload: {
                 email: Joi.string().required(),
-                username : Joi.string().required(),
+                username : Joi.string(),
                 password : Joi.string().min(8)
             }
         },
@@ -66,31 +96,6 @@ const register = {
                 }
             }
         }
-    },
-    // options : {
-    //     description: 'API for user register',
-    //     notes: 'Returns email, username, password',
-    //     tags: ['api'], // ADD THIS TAG
-    // },
-    handler: handler.register
-}
-
-const login = {
-    method: 'POST',
-    path: '/user/login',
-    options: {
-        validate: {
-            payload: {
-                email: Joi.string().required(),
-                username : Joi.string(),
-                password : Joi.string().min(8)
-            }
-        },
-    },
-    options : {
-        description: 'API for user login',
-        notes: 'Returns email, username, password ',
-        tags: ['api'], // ADD THIS TAG
     },
     handler: handler.login
 }
