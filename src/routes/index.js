@@ -19,23 +19,21 @@ const root = {
     method: 'GET',
     path: '/',
     options: {
+        description: 'Get test message',
+        notes: 'Returns a message ',
+        tags: ['api'], // ADD THIS TAG
         response: {
             status: {
-                200: Joi.object({ message : "hello" }),
+                200: Joi.object({ message: "hello" }),
                 400: validationError,
                 500: error
             },
             failAction: async (req, h, err) => {
-                if(err) {
+                if (err) {
                     console.log(`Server error: ${err}`)
                 }
             }
         }
-    },
-    options : {
-        description: 'Get test message',
-        notes: 'Returns a message ',
-        tags: ['api'], // ADD THIS TAG
     },
     handler: handler.root
 }
@@ -48,11 +46,11 @@ const register = {
         notes: 'Returns email, username, password',
         tags: ['api'],
         validate: {
-            payload: Joi.object({
-                    email: Joi.string().required(),
-                    username : Joi.string().required(),
-                    password : Joi.string().min(8)
-            })
+            payload: {
+                email: Joi.string().required(),
+                username: Joi.string().required(),
+                password: Joi.string().min(8)
+            }
         },
         response: {
             status: {
@@ -61,8 +59,8 @@ const register = {
                 500: error
             },
             failAction: async (req, h, err) => {
-                if(err) {
-                   return h.response(err)
+                if (err) {
+                    console.log(err)
                 }
             }
         }
@@ -73,15 +71,15 @@ const register = {
 const login = {
     method: 'POST',
     path: '/user/login',
+
     options: {
         description: 'API for user login',
         notes: 'Returns email, username, password ',
-        tags: ['api'],
+        tags: ['api'], // ADD THIS TAG
         validate: {
             payload: {
                 email: Joi.string().required(),
-                username : Joi.string(),
-                password : Joi.string().min(8)
+                password: Joi.string().min(8)
             }
         },
         response: {

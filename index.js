@@ -3,7 +3,6 @@ const Inert = require('inert');
 const Vision = require('vision');
 const HapiSwagger = require('hapi-swagger');
 
-
 const {connectMongo} = require('./config/mongoConnect')
 const route = require('./src/routes')
 
@@ -29,7 +28,8 @@ const start = async () => {
         {
             plugin: HapiSwagger,
             options: swaggerOptions
-        }
+        },
+        
     ]);
     await server.start()
     await connectMongo();
