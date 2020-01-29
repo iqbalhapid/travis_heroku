@@ -4,7 +4,7 @@ const {User} = require('../../config/mongoSchema')
 exports.register = (request, h) => {
     const {payload} = request
     return User.create(payload)
-    .then(res => h.response({res, message : 'register success'}).code(201))
+    .then(res => h.response({res, message : "register success"}).code(201))
     .catch(error => {
         const errorMessage = error.toString()
         if (errorMessage.match(/ValidationError|CastError/)) {
@@ -35,5 +35,5 @@ exports.login = (request, h) => {
 }
 
 exports.root = (request, h) => {
-    return h.response({ message: 'hello '})
+    return h.response({ message: 'hello'}).code(200)
 }
